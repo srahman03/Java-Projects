@@ -7,9 +7,11 @@ package gradesgui;
  *
  * @author sadik
  */
+import javax.swing.JTextField;
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class NewJFrame extends javax.swing.JFrame {
 
     /**
@@ -613,27 +615,40 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Calculates Year 2 grades - average *0.3 - weighting
-        String averageCalc2;
-        double weighting;
+        String averageText = average2.getText();
+        try {
+        // Parse the average as a double
+        double average = Double.parseDouble(averageText);
         
-        averageCalc2 = average2.getText();
-        double averageW = Double.parseDouble(averageCalc2);
-        weighting = averageW * 0.3;
+        // Calculate the weighting
+        double weighting = average * 0.3;
+        
+        // Set the weighting value in the text field
         weighting2.setText(Double.toString(weighting));
-        
+    } catch (NumberFormatException e) {
+        // Handle the case where the input is not a valid number
+        System.err.println("Invalid average input: " + averageText);
+    }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Calculates year 3 grades - average * 0.7 - weighting
         
-        String averageCalc3;
-        double weighting;
+         String averageText = average3.getText();
+        try {
+        // Parse the average as a double
+        double average = Double.parseDouble(averageText);
         
-        averageCalc3 = average3.getText();
-        double averageW = Double.parseDouble(averageCalc3);
-        weighting = averageW * 0.7;
+        // Calculate the weighting
+        double weighting = average * 0.7;
+        
+        // Set the weighting value in the text field
         weighting3.setText(Double.toString(weighting));
+    } catch (NumberFormatException e) {
+        // Handle the case where the input is not a valid number
+        System.err.println("Invalid average input: " + averageText);
+    }
         
     
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -686,10 +701,14 @@ public class NewJFrame extends javax.swing.JFrame {
         int count = 0;
         
         for(String number: numbers){
+        try{
             double value = Double.parseDouble(number.trim());
             sum += value;
             count++;
+        }catch (NumberFormatException e) {
+            System.err.println("Invalid number: " + number.trim());
         }
+    }
         if(count>0){
             double average = sum/count;
             multipleMarks.setText("Average: " + average);
@@ -756,55 +775,66 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // Calculates average of all year 2 marks
-        String y2Mark1, y2Mark2, y2Mark3, y2Mark4, y2Mark5, y2Mark6, y2Mark7, y2Mark8;
-        double averageYear2;
-        y2Mark1 = m1TF2.getText();
-        y2Mark2 = m2TF2.getText();
-        y2Mark3 = m3TF2.getText();
-        y2Mark4 = m4TF2.getText();
-        y2Mark5 = m5TF2.getText();
-        y2Mark6 = m6TF2.getText();
-        y2Mark7 = m7TF2.getText();
-        y2Mark8 = m8TF2.getText();
+         JTextField[] markFields = {
+        m1TF2, m2TF2, m3TF2, m4TF2, m5TF2, m6TF2, m7TF2, m8TF2
+    };
+    
+    double sum = 0;
+    int count = 0;
+    
+    for (JTextField field : markFields) {
+        String markText = field.getText();
         
-        double y2M1 = Double.parseDouble(y2Mark1);
-        double y2M2 = Double.parseDouble(y2Mark2);
-        double y2M3 = Double.parseDouble(y2Mark3);
-        double y2M4 = Double.parseDouble(y2Mark4);
-        double y2M5 = Double.parseDouble(y2Mark5);
-        double y2M6 = Double.parseDouble(y2Mark6);
-        double y2M7 = Double.parseDouble(y2Mark7);
-        double y2M8 = Double.parseDouble(y2Mark8);
-        
-        averageYear2 = (y2M1+y2M2+y2M3+y2M4+y2M5+y2M6+y2M7+y2M8)/8;
-        average2.setText(Double.toString(averageYear2));
+        if (!markText.isEmpty()) {
+            try {
+                double mark = Double.parseDouble(markText);
+                sum += mark;
+                count++;
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid mark: " + markText);
+                // You can display an error message to the user here if desired
+            }
+        }
+    }
+    
+    if (count > 0) {
+        double average = sum / count;
+        average2.setText(Double.toString(average));
+    } else {
+        average2.setText("No valid marks found");
+    }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // Calculates average of all year 3 marks
         
-         String y3Mark1, y3Mark2, y3Mark3, y3Mark4, y3Mark5, y3Mark6, y3Mark7, y3Mark8;
-        double averageYear3;
-        y3Mark1 = m1TF3.getText();
-        y3Mark2 = m2TF3.getText();
-        y3Mark3 = m3TF3.getText();
-        y3Mark4 = m4TF3.getText();
-        y3Mark5 = m5TF3.getText();
-        y3Mark6 = m6TF3.getText();
-        y3Mark7 = m7TF3.getText();
-        y3Mark8 = m8TF3.getText();
+            JTextField[] markFields = {
+        m1TF3, m2TF3, m3TF3, m4TF3, m5TF3, m6TF3, m7TF3, m8TF3
+    };
+    
+    double sum = 0;
+    int count = 0;
+    
+    for (JTextField field : markFields) {
+        String markText = field.getText();
         
-        double y3M1 = Double.parseDouble(y3Mark1);
-        double y3M2 = Double.parseDouble(y3Mark2);
-        double y3M3 = Double.parseDouble(y3Mark3);
-        double y3M4 = Double.parseDouble(y3Mark4);
-        double y3M5 = Double.parseDouble(y3Mark5);
-        double y3M6 = Double.parseDouble(y3Mark6);
-        double y3M7 = Double.parseDouble(y3Mark7);
-        double y3M8 = Double.parseDouble(y3Mark8);
-        
-        averageYear3 = (y3M1+y3M2+y3M3+y3M4+y3M5+y3M6+y3M7+y3M8)/8;
-        average3.setText(Double.toString(averageYear3));
+        if (!markText.isEmpty()) {
+            try {
+                double mark = Double.parseDouble(markText);
+                sum += mark;
+                count++;
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid mark: " + markText);
+            }
+        }
+    }
+    
+    if (count > 0) {
+        double average = sum / count;
+        average3.setText(Double.toString(average));
+    } else {
+        average3.setText("No valid marks found");
+    }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
