@@ -667,7 +667,7 @@ public class NewJFrame extends javax.swing.JFrame {
             String num3 = weighting3.getText();
             double gNum2 = Double.parseDouble(num2);
             double gNum3 = Double.parseDouble(num3);
-            double added = gNum2 + gNum3;
+            int added = (int) (gNum2 + gNum3);
 
             // Update the UI components
             if (added < 40) {
