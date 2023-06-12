@@ -1,15 +1,17 @@
 # Java-Projects
 This is where all my Java projects are. The aim is solidfy my understanding of the core and advanced topics of the Java language.
 
-Object-Oriented Programming (OOP):
-          ShapeHierarchy - Implemented a shape hierarchy using classes and inheritance. 
           
-Java Syntax and Data Types:
+1. Variables, Data Types, and Operators:
           CalculatorApp -  Uses Java Swing to create a functional simple calculator
           
-Control Flow:
+2. Control Flow Statements:
           GradesGUI - For university grade predictions/calculations 
                     - Uses Apache Netbeans
-                    
-Generics:
-          Generic Stack Implementation - A generic stack class that can store and retrieve elements of any data type.
+
+3. Arrays and Strings:
+          Word Counter - A simple program that counts the number of words in each sentence.          
+  
+ 
+10. Generics:
+          Stack Implementation - A generic stack class that can store and retrieve elements of any data type.
