@@ -12,6 +12,8 @@ This is where all my Java projects are. The aim is solidfy my understanding of t
 3. Arrays and Strings:
           Word Counter - A simple program that counts the number of words in each sentence.          
   
+4. Object-Oriented Programming (OOP) Concepts:
+          BankAccount - Implements basic banking operations
  
 10. Generics:
           Stack Implementation - A generic stack class that can store and retrieve elements of any data type.
