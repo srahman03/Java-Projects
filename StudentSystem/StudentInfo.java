@@ -19,7 +19,7 @@ public class StudentInfo {//parent class
     public static int slot1;
     String slot8, slot2, slot3, slot4, slot5, slot6, slot7;
     public static int eraser, eraserHeads;
-    public static int StudentUpdate, StudentDelete, StudentAdd, option;
+    public static int option;
 
     public void display() {
         StudentInfo s1 = new StudentInfo();
