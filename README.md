@@ -2,7 +2,7 @@
 This is where all my Java projects are. The aim is solidfy my understanding of the core and advanced topics of the Java language.
 
           
-1. Variables, Data Types, and Operators:
+1. Variables, Data Types, and Operators/Exception Handling:
           CalculatorApp -  Uses Java Swing to create a functional simple calculator
           
 2. Control Flow Statements:
