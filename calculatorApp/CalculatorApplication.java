@@ -238,152 +238,144 @@ public class CalculatorApplication implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// Get the source object that triggered the action
-		Object source = e.getSource();
-		if(source==onRadioButton) {
-			enable();
-		}else if(source==offRadioButton) {
-			disable();
-		}else if(source==buttonClear){
-			label.setText("");
-			textField.setText("");
-		}else if(source==buttonDelete) {
-			//delete the last character from the text field
-			int length = textField.getText().length();//get text() retrieves as a string
-			int number = length -  1;
-			if(length>0) {
-				// Create a StringBuilder with the current text and remove the last character
-				StringBuilder back = new StringBuilder(textField.getText());//Can't change strings unless in string builder or buffer object
-				back.deleteCharAt(number);
-				// Set the modified text back to the text field
-				textField.setText(back.toString());
-				// Check if the text field is empty
-			}
-			if(textField.getText().endsWith(""));
-			// If it is, clear the label
-			label.setText("");
-		}else if(source==buttonZero) {
-			// If it is and the current text is "0", do nothing
-			if (textField.getText().equals("0")) {
-				return;
-			}else {
-			// Otherwise, append "0" to the current text in the text field
-				textField.setText(textField.getText() + "0");//adds 0 to the textfield number
-			}
-		}else if(source==buttonOne) {
-			textField.setText(textField.getText() + "1");
-		}
-		else if(source==buttonTwo) {
-			textField.setText(textField.getText() + "2");
-		}
-		else if(source==buttonThree) {
-			textField.setText(textField.getText() + "3");
-		}
-		else if(source==buttonFour) {
-			textField.setText(textField.getText() + "4");
-		}
-		else if(source==buttonFive) {
-			textField.setText(textField.getText() + "5");
-		}
-		else if(source==buttonSix) {
-			textField.setText(textField.getText() + "6");
-		}
-		else if(source==buttonSeven) {
-			textField.setText(textField.getText() + "7");
-		}
-		else if(source==buttonEight) {
-			textField.setText(textField.getText() + "8");
-		}
-		else if(source==buttonNine) {
-			textField.setText(textField.getText() + "9");
-		}
-		else if(source==buttonDot) {
-			if(textField.getText().contains(".")) {
-				return;
-			}else {
-			textField.setText(textField.getText() + ".");
-			}
-		}else if(source == buttonPlus){
-			String str = textField.getText();
-			num1 = Double.parseDouble(textField.getText());
-			calculation = 1;
-			textField.setText("");
-			label.setText(str + "+");
-			
-		}else if(source==buttonMinus) {
-			String str = textField.getText();
-			num1 = Double.parseDouble(textField.getText());
-			calculation = 2;
-			textField.setText("");
-			label.setText(str + " -");
-			
-		}else if(source == buttonMul) {
-			String str = textField.getText();
-			num1 = Double.parseDouble(textField.getText());
-			calculation = 3;
-			textField.setText("");
-			label.setText(str + " x");
-		}
-		else if(source == buttonDiv) {
-			String str = textField.getText();
-			num1 = Double.parseDouble(textField.getText());
-			calculation = 4;
-			textField.setText("");
-			label.setText(str + " /");
-		}
-		else if(source == buttonSquare) {
-			String str = textField.getText();
-			num1 = Double.parseDouble(textField.getText());
-			double square = Math.pow(num1, 2);
-			String string = Double.toString(square);
-			if(string.endsWith(".0")) {
-				textField.setText(string.replace(".0", ""));
-			}else {
-				textField.setText(string);
-			}
-		}
-		else if(source == buttonSqrt) {
-			String str = textField.getText();
-			num1 = Double.parseDouble(textField.getText());
-			double sqrt = Math.sqrt(num1);
-			textField.setText(Double.toString(sqrt));
-		}
-		else if(source == buttonReciprocal) {
-			String str = textField.getText();
-			num1 = Double.parseDouble(textField.getText());
-			double reciprocal = 1/num1;
-			String string = Double.toString(reciprocal);
-			if(string.endsWith(".0")) {
-				textField.setText(string.replace(".0", ""));
-			}else {
-				textField.setText(string);
-			}
-		}else if(source==buttonEqual) {
-			num2 = Double.parseDouble(textField.getText());
-			
-			switch(calculation) {
-			case 1:
-				result = num1 + num2;
-				break;
-			case 2:
-				result = num1 - num2;
-				break;
-			case 3:
-				result = num1 * num2;
-				break;
-			case 4:
-				result = num1 / num2;
-				break;
-				
-			}if(Double.toString(result).endsWith(".0")) {
-				textField.setText(Double.toString(result).replace(".0", ""));
-			}else {
-				textField.setText(Double.toString(result));
-			}
-			label.setText("");
-			num1 = result;
-		}
-		
+	    // Get the source object that triggered the action
+	    Object source = e.getSource();
+	    // Check if the source is the "onRadioButton"
+	    if (source == onRadioButton) {
+	        enable();
+	    // Check if the source is the "offRadioButton"
+	    } else if (source == offRadioButton) {
+	        disable();
+	    // Check if the source is the "buttonClear"
+	    } else if (source == buttonClear) {
+	    // Clear the label and text field
+	        label.setText("");
+	        textField.setText("");
+	    } else if (source == buttonDelete) {
+	        // Delete the last character from the text field
+	        int length = textField.getText().length();
+	        if (length > 0) {
+	        // Create a StringBuilder from the text field's content
+	            StringBuilder back = new StringBuilder(textField.getText());
+	         // Remove the last character
+	            back.deleteCharAt(length - 1);
+	         // Set the modified text back to the text field
+	            textField.setText(back.toString());
+	        }
+	     // Clear the label
+	        label.setText("");
+	    } else if (source == buttonZero) {
+	    	// Append "0" to the text field if it's not already "0"
+	        if (!textField.getText().equals("0")) {
+	            textField.setText(textField.getText() + "0");
+	        }
+	     // Check if the source is any of the number buttons (buttonOne, buttonTwo, ..., buttonNine)
+	    } else if (source == buttonOne || source == buttonTwo || source == buttonThree ||
+	            source == buttonFour || source == buttonFive || source == buttonSix ||
+	            source == buttonSeven || source == buttonEight || source == buttonNine) {
+	    	// Cast the source to a JButton since it's known to be a number button
+	        JButton numberButton = (JButton) source;
+	     // Append the button's text to the text field
+	        textField.setText(textField.getText() + numberButton.getText());
+	    } else if (source == buttonDot) {
+	    	// Append a dot (".") to the text field if it doesn't already contain one
+	        if (!textField.getText().contains(".")) {
+	            textField.setText(textField.getText() + ".");
+	        }
+	     // Check if the source is any of the operation buttons (buttonPlus, buttonMinus, buttonMul, buttonDiv)
+	    } else if (source == buttonPlus || source == buttonMinus || source == buttonMul || source == buttonDiv) {
+	    	// Get the content of the text field
+	    	String str = textField.getText();
+	    	// Check if the text field is not empty
+	        if (!str.isEmpty()) {
+	        	//try-catch method
+	            try {
+	            	// Parse the text field content to a double
+	                num1 = Double.parseDouble(str);
+	             // Set the "calculation" variable based on the source button
+	                if (source == buttonPlus) {
+	                    calculation = 1;
+	                } else if (source == buttonMinus) {
+	                    calculation = 2;
+	                } else if (source == buttonMul) {
+	                    calculation = 3;
+	                } else if (source == buttonDiv) {
+	                    calculation = 4;
+	                }
+	             // Clear the text field
+	                textField.setText("");
+	             // Set the label (not textField) text to show the entered value and the operation
+	                label.setText(str + " " + ((JButton) source).getText());
+	            } catch (NumberFormatException ex) {
+	            // If a NumberFormatException occurs (invalid input), clear the text field and display an error message
+	                textField.setText("");
+	                label.setText("Invalid input");
+	            }
+	        }
+	     // Check if the source is any of the operation buttons for square, square root, and reciprocal
+	    } else if (source == buttonSquare || source == buttonSqrt || source == buttonReciprocal) {
+	        String str = textField.getText();
+	        if (!str.isEmpty()) {
+	            try {
+	                num1 = Double.parseDouble(str);
+	             // Perform the corresponding operation based on the source button
+	                if (source == buttonSquare) {
+	                    double square = Math.pow(num1, 2);
+	                    textField.setText(formatResult(square));
+	                } else if (source == buttonSqrt) {
+	                    double sqrt = Math.sqrt(num1);
+	                    textField.setText(formatResult(sqrt));
+	                } else if (source == buttonReciprocal) {
+	                    double reciprocal = 1 / num1;
+	                    textField.setText(formatResult(reciprocal));
+	                }
+	            } catch (NumberFormatException ex) {
+	                textField.setText("");
+	                label.setText("Invalid input");
+	            }
+	        }
+	    } else if (source == buttonEqual) {
+	        String str = textField.getText();
+	        if (!str.isEmpty()) {
+	            try {
+	                num2 = Double.parseDouble(str);
+	                switch (calculation) {
+	                    case 1:
+	                        result = num1 + num2;
+	                        break;
+	                    case 2:
+	                        result = num1 - num2;
+	                        break;
+	                    case 3:
+	                        result = num1 * num2;
+	                        break;
+	                    case 4:
+	                        result = num1 / num2;
+	                        break;
+	                }
+	             // Set the calculated result in the text field
+	                textField.setText(formatResult(result));
+	             // Clear the label
+	                label.setText("");
+	             // Update num1 with the result for potential subsequent calculations
+	                num1 = result;
+	            } catch (NumberFormatException ex) {
+	                textField.setText("");
+	                label.setText("Invalid input");
+	            }
+	        }
+	    }
+	}
+
+	// Helper method to format the result by removing unnecessary decimal places
+	private String formatResult(double value) {
+		// Convert the double value to a string
+	    String string = Double.toString(value);
+	    if (string.endsWith(".0")) {
+	        return string.replace(".0", "");
+	    } else {
+	        return string;
+	    }
 	}
 	//enables interaction with UI Components
 	
