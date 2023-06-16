@@ -18,5 +18,8 @@ This is where all my Java projects are. The aim is solidfy my understanding of t
 5. Constructors:
           Student Information System - stores user information and handles addition/deletion/update methods
           
+6. Input and Output (I/O) Streams:
+          WaterMarking project - Adds a watermark to multiple images.
+          
 10. Generics:
           Stack Implementation - A generic stack class that can store and retrieve elements of any data type.
