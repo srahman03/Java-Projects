@@ -7,7 +7,7 @@ This is where all my Java projects are. The aim is solidfy my understanding of t
           
 2. Control Flow Statements:
           GradesGUI - For university grade predictions/calculations 
-                    - Uses Apache Netbeans
+                    - Netbeans
 
 3. Arrays and Strings:
           Word Counter - A simple program that counts the number of words in each sentence.          
@@ -19,7 +19,8 @@ This is where all my Java projects are. The aim is solidfy my understanding of t
           Student Information System - stores user information and handles addition/deletion/update methods
           
 6. Input and Output (I/O) Streams:
-          WaterMarking project - Adds a watermark to multiple images.
+          WaterMarking project - Adds a watermark to multiple images and saves them to chosen folders.
+                               - Netbeans 
           
 10. Generics:
           Stack Implementation - A generic stack class that can store and retrieve elements of any data type.
