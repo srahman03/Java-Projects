@@ -3,7 +3,7 @@ This is where all my Java projects are. The aim is solidfy my understanding of t
 
           
 1. Variables, Data Types, and Operators/Exception Handling:
-          CalculatorApp -  Uses Java Swing to create a functional simple calculator
+          CalculatorApp - Java Swing to create a functional simple calculator
           
 2. Control Flow Statements:
           GradesGUI - For university grade predictions/calculations 
@@ -19,8 +19,8 @@ This is where all my Java projects are. The aim is solidfy my understanding of t
           Student Information System - stores user information and handles addition/deletion/update methods
           
 6. Input and Output (I/O) Streams:
-          WaterMarking project - Adds a watermark to multiple images and saves them to chosen folders.
-                               - Netbeans 
+          WaterMark - Adds a watermark to multiple images and saves them to chosen folders.
+                    - Netbeans 
           
 10. Generics:
           Stack Implementation - A generic stack class that can store and retrieve elements of any data type.
