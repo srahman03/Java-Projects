@@ -21,6 +21,9 @@ This is where all my Java projects are. The aim is solidfy my understanding of t
 6. Input and Output (I/O) Streams:
           WaterMark - Adds a watermark to multiple images and saves them to chosen folders.
                     - Netbeans 
-          
+
+7. File Handling:
+          File handling - Copies/prints/creates files
+   
 10. Generics:
           Stack Implementation - A generic stack class that can store and retrieve elements of any data type.
